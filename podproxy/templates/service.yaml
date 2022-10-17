@@ -10,7 +10,8 @@ spec:
   ports: 
   - name: ssh
     protocol: TCP
-    port: 2022
+    port: {{ .Values.service.sshPort }}
   - name: https
     protocol: TCP
-    port: 8443
+    port: {{ .Values.service.httpPort }}
+

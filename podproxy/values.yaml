@@ -1,0 +1,12 @@
+image:
+  repository: laforgetech/podproxy
+  tag: 0.0.1
+
+pubKey: |
+  ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINZ6+x7HGTAD7Jr10bgvLzdqBz6Tfe8GfuFknjyj1Nvl pubkey
+
+service:
+  type: ClusterIP
+  httpPort: 9443
+  sshPort: 2022
+
