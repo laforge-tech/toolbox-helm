@@ -12,5 +12,5 @@ spec:
       labels: {{- include "common.labels.standard" . | nindent 8 }}
     spec:
       containers:
-      - name: nginx
-        image: laforgetech/sideshell:0.0.1
+      - name: sideshell
+        image: {{ include "common.images.image" (dict "imageRoot" .Values.image "global" $) }}
