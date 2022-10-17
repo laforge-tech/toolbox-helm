@@ -1,0 +1,11 @@
+apiVersion: v2
+name: sideshell
+description: A alpine container with all tool for debug
+type: application
+version: 0.1.0
+appVersion: "0.0.1"
+
+dependencies:
+  - name: common
+    version: 1.x.x
+    repository: https://charts.bitnami.com/bitnami
