@@ -1,0 +1,28 @@
+apiVersion: {{ include "common.capabilities.deployment.apiVersion" . }}
+kind: Deployment
+metadata:
+  name: {{ include "common.names.fullname" . }}
+  namespace: {{ include "common.names.namespace" . }}
+  labels: {{- include "common.labels.standard" . | nindent 4 }}
+spec:
+  selector:
+    matchLabels: {{- include "common.labels.matchLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels: {{- include "common.labels.standard" . | nindent 8 }}
+    spec:
+      securityContext:
+        runAsUser: 1000
+        fsGroup: 1000
+      containers:
+      - name: sideshell
+        image: {{ include "common.images.image" (dict "imageRoot" .Values.image "global" $) }}
+        volumeMounts:
+        - name: config
+          mountPath: "/app/config"
+          readOnly: true
+      volumes:
+      - name: config
+        secret:
+          secretName: {{ include "common.names.fullname" . }}
+          optional: false
