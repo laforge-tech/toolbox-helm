@@ -1,8 +1,14 @@
 image:
   repository: laforgetech/sideshell
-  tag: 0.0.2
+  tag: 0.0.4
 
 podLabels: {}
 
 podAnnotations: {}
+
+# SA to use (created if empty)
+sa: vault
+
+vault:
+  address: vault.vault.svc
 
